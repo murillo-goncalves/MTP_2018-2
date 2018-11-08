@@ -1,5 +1,5 @@
 /* P1.c */
-/* Murillo Rodrigues Gonçalves */
+/* Murillo Rodrigues GonÃ§alves */
 /* 11811ebi001 */
 
 
