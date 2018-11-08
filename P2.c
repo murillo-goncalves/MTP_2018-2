@@ -1,5 +1,5 @@
 /*P2.c*/
-/* Murillo Rodrigues Gonçalves */
+/* Murillo Rodrigues GonÃ§alves */
 /* 11811EBI001 */
 
 #include <stdio.h>
