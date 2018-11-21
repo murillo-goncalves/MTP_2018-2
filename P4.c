@@ -1,5 +1,5 @@
 /* P4.c */
-/* MURILLO RODRIGUES GONÇALVES*/
+/* MURILLO RODRIGUES GONÃ‡ALVES*/
 /* 11811EBI001 */
 
 #include <stdio.h>
