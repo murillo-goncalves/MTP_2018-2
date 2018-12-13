@@ -2,7 +2,10 @@
 /* Murillo Gonçalves */
 /* 11811EBI001 */
 
+
 #include <stdio.h>
+
+
 
 void trocar (char vet[])
 {
@@ -17,6 +20,7 @@ void trocar (char vet[])
 	vet[flag] = '\0';
 }
 
+
 int potenciacao (int num, int num2)
 {
 	int i, pot=1;
@@ -24,6 +28,7 @@ int potenciacao (int num, int num2)
 		pot *= num;
 	return pot;
 }
+
 
 int b__p (char vet[])
 {
@@ -36,6 +41,7 @@ int b__p (char vet[])
 	}
 	return soma/49;
 }
+
 
 int decbin (int num)
 {
@@ -57,6 +63,8 @@ int decbin (int num)
 		printf("%d", vet[j]);
 	}
 }
+
+
 
 int main()
 {
