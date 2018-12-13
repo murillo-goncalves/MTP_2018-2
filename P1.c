@@ -1,67 +1,36 @@
 /* P1.c */
-/* Murillo Rodrigues GonÃ§alves */
-/* 11811ebi001 */
-
-
+/* Murillo Rodrigues Gonçalves */
+/* 11811EBI001 */
 
 #include <stdio.h>
-
 int main ()
 {
-	int estado = 0, i;
+	int estad = 0, j = 0;
 	char bits [256];
-	printf ("Digite uma sequencia de numeros (zeros e ums) para verificar se eh multiplo de 3: ");
-	fflush (stdin);
-	gets (bits);
-	for (i=0; bits[i] != '\0'; i++)
+	printf ("Digite o numero binario para ver se eh multipo de 3: \n");
+	fgets (bits, 256, stdin);
+	while (bits[j] != '\0')
 	{
-		if (estado == 0 )
-		{
-			if (bits[i]=='0')
-			{
-				estado = 0;
-			}
-			else{
-				estado = 1;
-			}
-		}
-		else if (estado == 1)
-		{
-			if (bits[i]=='0')
-			{
-				estado = 2;
-			}
-			else{
-				estado = 0;
-			}
-		}
-		else if (estado == 2)
-		{
-			if (bits[i]=='0')
-			{
-				estado = 1;
-			}
-			else{
-				estado = 2;
-			}
-		}
+		if (estad == 0 && bits [j] == '0')
+			estad = 0;
+		else if (estad ==0 && bits [j]=='1')
+			estad = 1;
+		else if (estad == 1 && bits [j] == '1')
+			estad = 0;
+		else if (estad== 1 && bits [j]== '0')
+			estad = 2;
+		else if (estad == 2 && bits [j] == '0')
+			estad = 1;
+		else if (estad == 2 && bits [j] == '1')
+			estad = 2;
+		j++;
 	}
-	printf ("\n\nSequencia original: \n");
-	for (i=0; bits[i] != '\0'; i++)
-	{
-		printf ("%c", bits[i]);
-	}
-	
-	
-	if (estado == 0)
-	{
-		printf ("\n\ne multiplo de 3");
-	}
+
+	printf ("Sequencia original: %s\n", bits);
+	if (estad == 0)
+		printf ("Eh multiplo de 3");
 	else
-	{
-		printf ("\n\nnao e");
-	}
-	getch ();
+		printf ("Nao eh");
+
 	return 0;
 }
-
