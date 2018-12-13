@@ -1,10 +1,10 @@
 /*P2.c*/
-/* Murillo Rodrigues GonÃ§alves */
+/* Murillo Gonçalves */
 /* 11811EBI001 */
 
 #include <stdio.h>
 
-void inv (char vet[])
+void trocar (char vet[])
 {
 	int i, j, flag = 0, aux;
 	for(i = 0; vet[i] != '\0'; i++, flag++);
@@ -17,7 +17,7 @@ void inv (char vet[])
 	vet[flag] = '\0';
 }
 
-int exp (int num, int num2)
+int potenciacao (int num, int num2)
 {
 	int i, pot=1;
 	for (i=0; i<num2; i++)
@@ -25,9 +25,19 @@ int exp (int num, int num2)
 	return pot;
 }
 
+int b__p (char vet[])
+{
+	int i, soma = 0;
+	trocar(vet);
+	for (i=0; vet[i] != '\0'; i++)
+	{
+		if (vet[i]=='1')
+			soma = soma + vet[i] * potenciacao(2,i);
+	}
+	return soma/49;
+}
 
-
-int decimalbinario (int num)
+int decbin (int num)
 {
 	int i, flag = 0, vet[256], j;
 	j = num;
@@ -48,66 +58,54 @@ int decimalbinario (int num)
 	}
 }
 
-int binariodecimal (char vet[])
-{
-	int i, soma = 0;
-	inv(vet);
-	for (i=0; vet[i] != '\0'; i++)
-	{
-		if (vet[i]=='1')
-			soma = soma + vet[i] * exp(2,i);
-	}
-	return soma/49;
-}
-
-
 int main()
 {
-	char str[256];
-	int x, y;
-		printf ("TABELA DE CONVERSAO\nMENU DE OPCOES\n\nDIGITE PARA CONVERTER:\n\n1 - BINARIO PARA DECIMAL\n2 - BINARIO PARA HEXADECIMAL\n3 - HEXADECIMAL PARA DECIMAL\n4 - HEXADECIMAL PARA BINARIO\n5 - DECIMAL PARA BINARIO\n6 - DECIMAL PARA HEXADECIMAL\n7 - OCTAL PARA DECIMAL\n8 - DECIMAL PARA OCTAL\n\n");
-		scanf ("%d", &x);
-		switch (x)
+	char aux[256];
+	int op, num;
+		printf ("TABELA DE CONVERSAO \n\nMENU DE OPCOES: \n\n");
+		printf ("Digite para converter:\n\n1. Binario para decimal\n2. Binario para hexadecimal\n3. Hexadecimal para decimal\n4. Hexadecimal para binario\n5. Decimal para binario\n6. Decimal para hexadecimal\n7. Octal para decimal\n8. Decimal para octal\n\n");
+		scanf ("%d", &op);
+		switch (op)
 		{
 			case 1:
 				printf ("\nDigite o numero binario: ");
-				scanf ("%s", &str[0]);
-				printf("\nEm decimal ele eh %d", binariodecimal(str));
+				scanf ("%s", &aux[0]);
+				printf("\nEm decimal: %d", b__p(aux));
 				break;
 			case 2:
 				printf ("\nDigite o numero binario: ");
-				scanf ("%s", &str[0]);
-				printf ("\nEm hexadecimal ele eh %x", binariodecimal(str));
+				scanf ("%s", &aux[0]);
+				printf ("\nEm hexadecimal: %x", b__p(aux));
 				break;
 			case 3:
 				printf ("\nDigite o numero hexadecimal: ");
-				scanf ("%x", &y);
-				printf ("\n em decimal ele eh %d.", y);
+				scanf ("%x", &num);
+				printf ("\n em decimal ele eh %d.", num);
 				break;
 			case 4: 
 				printf ("\nDigite o numero hexadecimal: ");
-				scanf ("%x", &y);
-				decimalbinario(y);
+				scanf ("%x", &num);
+				decbin(num);
 				break;
 			case 5:
 				printf ("\nDigite o numero decimal: ");
-				scanf ("%d", &y);
-				decimalbinario(y);
+				scanf ("%d", &num);
+				decbin(num);
 				break;
 			case 6:
 				printf ("\nDigite o numero decimal: ");
-				scanf ("%d", &y);
-				printf ("\n Em hexadecimal ele eh %x", y);
+				scanf ("%d", &num);
+				printf ("\n Em hexadecimal: %x", num);
 				break;
 			case 7:
 				printf ("\nDigite o numero octal: ");
-				scanf ("%o", &y);
-				printf ("\n Em decimal ele eh %d", y);
+				scanf ("%o", &num);
+				printf ("\n Em decimal: %d", num);
 				break;
 			case 8:
 				printf ("\nDigite o numero decimal: ");
-				scanf ("%d", &y);
-				printf ("\n Ele em octal eh %o", y);
+				scanf ("%d", &num);
+				printf ("\n Em octal: %o", num);
 				break;
 			default:
 				printf ("\nOpcao invalida.");
